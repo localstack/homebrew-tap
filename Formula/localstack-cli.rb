@@ -32,3 +32,13 @@ class LocalstackCli < Formula
       sha256 "432ee660ab3d50477a33d78a6f93822e2f0c830529e034cda5b56bc114c10df3"
     end
   end
+
+  def install
+    libexec.install Dir["*"]
+    bin.install_symlink libexec/"localstack"
+  end
+
+  test do
+    assert_match /LocalStack Command Line Interface/, shell_output("#{bin}/localstack --help", 0)
+  end
+end
