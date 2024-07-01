@@ -6,6 +6,7 @@ class LocalstackCli < Formula
   desc "Localstack cli packaged using pyinstaller"
   homepage "https://github.com/localstack/localstack-cli"
   url "https://github.com/localstack/localstack-cli/archive/refs/tags/v3.5.0.tar.gz"
+  version "3.5.0"
   sha256 "f6d7f2193bc32764da0eea320ee454dd1a575e40a565f3691e26b2d545331065"
   license "NOASSERTION"
 
