@@ -5,38 +5,39 @@
 class LocalstackCli < Formula
   desc "Localstack cli packaged using pyinstaller"
   homepage "https://github.com/localstack/localstack-cli"
-  url "https://github.com/localstack/localstack-cli/archive/refs/tags/v3.8.0.tar.gz"
-  version "3.8.0"
-  sha256 "30f64f5aedee5aaf3826c80e4d17af3381ec892a507ffdc3d9490d5217757a40"
+  url "https://github.com/localstack/localstack-cli/archive/refs/tags/v3.8.1.tar.gz"
+  version "3.8.1"
+  sha256 "0220e6ea9988af2277917bb129b0e3de7e9903d3a39794ecc3b8c3cecd84fc95"
   license "NOASSERTION"
 
   on_macos do
     on_intel do
-      url "https://github.com/localstack/localstack-cli/releases/download/v3.8.0/localstack-cli-3.8.0-darwin-amd64.tar.gz"
-      sha256 "ed99937ea07a89719fde1b2ad0d419ff0eb0320966d40e884e029c7010d2700b"
+      url "https://github.com/localstack/localstack-cli/releases/download/v3.8.1/localstack-cli-3.8.1-darwin-amd64.tar.gz"
+      sha256 "a5635524574bf07049c83ce072aa54146a6a8ba1ec2b2444fc849abbf0430e15"
     end
 
     on_arm do
-      url "https://github.com/localstack/localstack-cli/releases/download/v3.8.0/localstack-cli-3.8.0-darwin-arm64.tar.gz"
-      sha256 "6335878d1185f7b40b11aa868c06f68e06a9c5e0c33bec67fa459194298cc5c1"
+      url "https://github.com/localstack/localstack-cli/releases/download/v3.8.1/localstack-cli-3.8.1-darwin-arm64.tar.gz"
+      sha256 "836a79f5752b28fce6f7a32fef8698f93ce19a795a19dfb1bb89c9a2df5ccbba"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/localstack/localstack-cli/releases/download/v3.8.0/localstack-cli-3.8.0-linux-amd64.tar.gz"
-      sha256 "f4247e03255e041dc93ca33037c73f368d1f264f9cb841416afac72656ac66ff"
+      url "https://github.com/localstack/localstack-cli/releases/download/v3.8.1/localstack-cli-3.8.1-linux-amd64.tar.gz"
+      sha256 "da0675ddc573ac12ba16141e5760532bbb638b8d04ffc6259ca22605f436791d"
     end
 
     on_arm do
-      url "https://github.com/localstack/localstack-cli/releases/download/v3.8.0/localstack-cli-3.8.0-linux-arm64.tar.gz"
-      sha256 "14670a63b9d5d189cddb9258f7f1c211b0f70dfbe679f745c4b898cbb5bad107"
+      url "https://github.com/localstack/localstack-cli/releases/download/v3.8.1/localstack-cli-3.8.1-linux-arm64.tar.gz"
+      sha256 "9f12167d566a0ef27e5bd32b4a80e28477abbc460a3d5b0dc03c9a792ea3c1e6"
     end
   end
 
   def install
     libexec.install Dir["*"]
     bin.install_symlink libexec/"localstack"
+    generate_completions_from_executable(bin/"localstack", "completion")
   end
 
   test do
