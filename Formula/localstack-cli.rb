@@ -5,32 +5,32 @@
 class LocalstackCli < Formula
   desc "Localstack cli packaged using pyinstaller"
   homepage "https://github.com/localstack/localstack-cli"
-  url "https://github.com/localstack/localstack-cli/archive/refs/tags/v4.6.0.tar.gz"
-  version "4.6.0"
-  sha256 "4e1848e5edf9e80d00fe067253789c6d06897b28b972a3c02722ea991c246501"
+  url "https://github.com/localstack/localstack-cli/archive/refs/tags/v4.7.0.tar.gz"
+  version "4.7.0"
+  sha256 "3eae83fbd212231cb6e8c62e736c75f4175a50ed574b72ca5a2a040205443480"
   license "NOASSERTION"
 
   on_macos do
     on_intel do
-      url "https://github.com/localstack/localstack-cli/releases/download/v4.6.0/localstack-cli-4.6.0-darwin-amd64.tar.gz"
-      sha256 "8cc7e9abd19b46a381c45cdb27e8b701a0bbe1654cf6428228cbbd2a7bf5a937"
+      url "https://github.com/localstack/localstack-cli/releases/download/v4.7.0/localstack-cli-4.7.0-darwin-amd64.tar.gz"
+      sha256 "6e04b3cd7275a9259646f170b73c461583e4c00b6a6078eac9063fe2f4c528b3"
     end
 
     on_arm do
-      url "https://github.com/localstack/localstack-cli/releases/download/v4.6.0/localstack-cli-4.6.0-darwin-arm64.tar.gz"
-      sha256 "805d1f8f63f2ce42e844359e077e8f2e92a7ae2b0ce39241fccc3941f001ea4a"
+      url "https://github.com/localstack/localstack-cli/releases/download/v4.7.0/localstack-cli-4.7.0-darwin-arm64.tar.gz"
+      sha256 "1db9e38abd662611034e85fb9358c8538a9eb9e064071e9d2b3fcd93ce2ca52a"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/localstack/localstack-cli/releases/download/v4.6.0/localstack-cli-4.6.0-linux-amd64.tar.gz"
-      sha256 "8d15393a0c56eb5d8d4f342ec101d8d2347e475b3e4f33bee84af17db55a6139"
+      url "https://github.com/localstack/localstack-cli/releases/download/v4.7.0/localstack-cli-4.7.0-linux-amd64.tar.gz"
+      sha256 "8571c5a67c668fdd3e328941518f22a1fc95f91dcb96a0993d7f3c8604a797f9"
     end
 
     on_arm do
-      url "https://github.com/localstack/localstack-cli/releases/download/v4.6.0/localstack-cli-4.6.0-linux-arm64.tar.gz"
-      sha256 "9dfe730cfea89ed3a737813d10de293f6b9846e4cbd80fb049f5cd7298a4cdd3"
+      url "https://github.com/localstack/localstack-cli/releases/download/v4.7.0/localstack-cli-4.7.0-linux-arm64.tar.gz"
+      sha256 "52d9c4344d8bbbfbf5df555f055f1d181cc0b9fc5f3c4b64e5a8fb4f4f204d0e"
     end
   end
 
