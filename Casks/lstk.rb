@@ -3,7 +3,7 @@ cask "lstk" do
   name "lstk"
   desc "LocalStack CLI v2 - Start and manage LocalStack emulators"
   homepage "https://github.com/localstack/lstk"
-  version "0.5.1"
+  version "0.5.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -18,12 +18,12 @@ cask "lstk" do
     on_intel do
       url "https://github.com/localstack/lstk/releases/download/v#{version}/lstk_#{version}_darwin_amd64.tar.gz",
         verified: "github.com/localstack/lstk"
-      sha256 "d82cb95f337ed23dee39b823cb4708f5fc0ca4044324c0261e954b7dadf031a0"
+      sha256 "3b9ca9b2794d8d151ad2ae452e919a5d3710c8b250a87186215a3161542d1ad0"
     end
     on_arm do
       url "https://github.com/localstack/lstk/releases/download/v#{version}/lstk_#{version}_darwin_arm64.tar.gz",
         verified: "github.com/localstack/lstk"
-      sha256 "332c0d35fe50cb4094c5f8e0ff41007a153d74a5cb90838f03405053ffea6202"
+      sha256 "db1345fa484af75a3bd348f8fedf4b0132da98b09aba159ac077142e5c830ea1"
     end
   end
 
@@ -31,12 +31,12 @@ cask "lstk" do
     on_intel do
       url "https://github.com/localstack/lstk/releases/download/v#{version}/lstk_#{version}_linux_amd64.tar.gz",
         verified: "github.com/localstack/lstk"
-      sha256 "b95b5e45e8c273541358907e96571a6cf1fa4d666f343de80e458d1b1bfa3009"
+      sha256 "dc9b048f0f201f09b17aec33ff10a4cd46aeb67e7d266e9d6ce25b3a0c51341c"
     end
     on_arm do
       url "https://github.com/localstack/lstk/releases/download/v#{version}/lstk_#{version}_linux_arm64.tar.gz",
         verified: "github.com/localstack/lstk"
-      sha256 "e951a47bcbbe1bc49a4e24fb4e14d5bd125ce668ddb4e65dc6263209e71a0fbd"
+      sha256 "42faa52f64f0b43cb742b9532bf6f0502dfc60e6af5c3ce889ec53a4614e8f52"
     end
   end
 
