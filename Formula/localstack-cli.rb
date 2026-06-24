@@ -5,32 +5,32 @@
 class LocalstackCli < Formula
   desc "Localstack cli packaged using pyinstaller"
   homepage "https://github.com/localstack/localstack-cli"
-  url "https://github.com/localstack/localstack-cli/archive/refs/tags/v2026.5.0.tar.gz"
-  version "2026.5.0"
-  sha256 "0637e9cb9afe0bff4e45ef321dfd5e2970749096809ccd5b24160b6baba2a3c1"
+  url "https://github.com/localstack/localstack-cli/archive/refs/tags/v2026.6.0.tar.gz"
+  version "2026.6.0"
+  sha256 "c63a916c71729dec6a25005003bf9591cce5b32b2ce78ffd34ab334b4f9c0291"
   license "NOASSERTION"
 
   on_macos do
     on_intel do
-      url "https://github.com/localstack/localstack-cli/releases/download/v2026.5.0/localstack-cli-2026.5.0-darwin-amd64.tar.gz"
-      sha256 "bc7801a4f2db3b561a4eb6b2de6eea2637b01092ed448c8245a789353a254db9"
+      url "https://github.com/localstack/localstack-cli/releases/download/v2026.6.0/localstack-cli-2026.6.0-darwin-amd64.tar.gz"
+      sha256 "2397762a21dbf225f754ab3bb0f56d420aa3476d4f22a429f1b0853f18ba30a4"
     end
 
     on_arm do
-      url "https://github.com/localstack/localstack-cli/releases/download/v2026.5.0/localstack-cli-2026.5.0-darwin-arm64.tar.gz"
-      sha256 "46c7e13f6c3e29dbbc99c5b6d58a4dfae02e4761998211848fbda7b5cde848eb"
+      url "https://github.com/localstack/localstack-cli/releases/download/v2026.6.0/localstack-cli-2026.6.0-darwin-arm64.tar.gz"
+      sha256 "97cdc1ae23364850fd722934c66d2fdaf2d17f678a5d68b5fc4d75fba88db561"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/localstack/localstack-cli/releases/download/v2026.5.0/localstack-cli-2026.5.0-linux-amd64.tar.gz"
-      sha256 "01cbc79cb0bc10a5401ad2708c8be8ab642c5244e73fe32ff8972c365aafffb5"
+      url "https://github.com/localstack/localstack-cli/releases/download/v2026.6.0/localstack-cli-2026.6.0-linux-amd64.tar.gz"
+      sha256 "a666f278ba26bc5b4a6aad8a5a5e4904a3762d3aab2e824db358abb30cb3632e"
     end
 
     on_arm do
-      url "https://github.com/localstack/localstack-cli/releases/download/v2026.5.0/localstack-cli-2026.5.0-linux-arm64.tar.gz"
-      sha256 "dea5715f12ceba30351f876f3ccedf536029e01ff063ab14cbb06c32493583c2"
+      url "https://github.com/localstack/localstack-cli/releases/download/v2026.6.0/localstack-cli-2026.6.0-linux-arm64.tar.gz"
+      sha256 "c7b34a8915b77f56ab2679b540276eb7bb333744bab2aaac82067db706c49f10"
     end
   end
 
