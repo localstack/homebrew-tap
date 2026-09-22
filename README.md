@@ -6,15 +6,13 @@ This is a custom [Homebrew](https://brew.sh) tap for official LocalStack softwar
 
 ## Installing lstk
 
-[`lstk`](https://github.com/localstack/lstk) is the official LocalStack CLI. It manages the full emulator lifecycle: authentication, image pulls, container lifecycle, logs, and state snapshots.
+[`lstk`](https://github.com/localstack/lstk) is the official LocalStack CLI recommended to run and manage LocalStack.
 
-Install it on macOS or Linux with:
+Install it on macOS or Linux (including shell completions for `bash`, `zsh`, and `fish`) with:
 
 ```bash
 brew install localstack/tap/lstk
 ```
-
-This also installs shell completions for `bash`, `zsh`, and `fish`.
 
 Verify the installation:
 
@@ -27,8 +25,6 @@ Then start LocalStack:
 ```bash
 lstk
 ```
-
-Running `lstk` without arguments authenticates, pulls the latest image if needed, and starts the container.
 
 ## Updating lstk
 
