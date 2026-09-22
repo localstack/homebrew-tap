@@ -61,10 +61,15 @@ jobs:
       # license. Reported so they are visible; TODO: make this blocking once
       # that generator emits a clean formula.
       # `always()` because continue-on-error only forgives this step's own
-      # failure; without it a failing cask check above skips this one.
+      # failure; without it a failing cask check above skips this one. `|| rc=1`
+      # because the shell runs under `-e`, so a failing style run would
+      # otherwise abort before the audit -- the half that catches the version
+      # and license problems.
       - name: Style and audit the formula
         if: always()
         continue-on-error: true
         run: |
-          brew style --formula localstack/tap/localstack-cli
-          brew audit --formula --online localstack/tap/localstack-cli
+          rc=0
+          brew style --formula localstack/tap/localstack-cli || rc=1
+          brew audit --formula --online localstack/tap/localstack-cli || rc=1
+          exit "${rc}"
