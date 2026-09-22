@@ -23,6 +23,10 @@ jobs:
     # Casks are macOS artifacts, and the runner ships Homebrew.
     runs-on: macos-latest
     timeout-minutes: 20
+    # `brew audit --online` queries the GitHub API, and the runners share IPs
+    # that are already over the unauthenticated rate limit.
+    env:
+      HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Check out the tap
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -56,7 +60,10 @@ jobs:
       # Releaser and has 7 pre-existing problems, including a non-standard SPDX
       # license. Reported so they are visible; TODO: make this blocking once
       # that generator emits a clean formula.
+      # `always()` because continue-on-error only forgives this step's own
+      # failure; without it a failing cask check above skips this one.
       - name: Style and audit the formula
+        if: always()
         continue-on-error: true
         run: |
           brew style --formula localstack/tap/localstack-cli
