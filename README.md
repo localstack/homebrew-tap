@@ -8,7 +8,7 @@ This is a custom [Homebrew](https://brew.sh) tap for official LocalStack softwar
 
 [`lstk`](https://github.com/localstack/lstk) is the official LocalStack CLI recommended to run and manage LocalStack.
 
-Install it on macOS or Linux (including shell completions for `bash`, `zsh`, and `fish`) with:
+Install it on macOS or Linux with:
 
 ```bash
 brew install localstack/tap/lstk
