@@ -1,0 +1,72 @@
+name: Tap CI
+
+# Content reaches this tap two ways -- release bots push generated files to
+# main, and people hand-edit them (#8) -- and neither is checked today. The
+# deprecated `postflight` stanza (#7) shipped that way and survived two
+# releases.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Style and audit
+    # Casks are macOS artifacts, and the runner ships Homebrew.
+    runs-on: macos-latest
+    timeout-minutes: 20
+    # `brew audit --online` queries the GitHub API, and the runners share IPs
+    # that are already over the unauthenticated rate limit.
+    env:
+      HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Check out the tap
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: tap
+
+      # Audit and the cask cops both resolve a tap name, not a path, so the
+      # checkout has to stand in as the real tap.
+      - name: Install the checkout as localstack/tap
+        run: |
+          dest="$(brew --repository)/Library/Taps/localstack/homebrew-tap"
+          mkdir -p "$(dirname "${dest}")"
+          rm -rf "${dest}"
+          cp -R tap "${dest}"
+
+      # TODO(localstack/lstk#512): drop --except-cops. The next lstk release
+      # regenerates this cask with the quarantine stanza first, which trips
+      # Cask/StanzaOrder on every stanza after it until the install_steps form
+      # lands upstream. Scoped to that one cop, so Cask/InstallSteps -- the cop
+      # that catches #7 -- still fires.
+      - name: Style the cask
+        run: brew style --except-cops=Cask/StanzaOrder --cask localstack/tap/lstk
+
+      # Why this job earns its keep: --online fetches every url and verifies
+      # every checksum. lstk's own CI renders the cask before the release it
+      # points at exists, so it cannot check either.
+      - name: Audit the cask
+        run: brew audit --cask --online localstack/tap/lstk
+
+      # TODO(localstack/localstack-cli#57): drop continue-on-error once a release
+      # regenerates the formula from that fix. Reported not enforced until then:
+      # the generator emits 7 problems, and fixing them here would be overwritten.
+      #
+      # `always()` so a failing cask check above does not skip this; `|| rc=1`
+      # because `-e` would otherwise abort before the audit.
+      - name: Style and audit the formula
+        if: always()
+        continue-on-error: true
+        run: |
+          rc=0
+          brew style --formula localstack/tap/localstack-cli || rc=1
+          brew audit --formula --online localstack/tap/localstack-cli || rc=1
+          exit "${rc}"
