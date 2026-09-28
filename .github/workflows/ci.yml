@@ -56,15 +56,10 @@ jobs:
       - name: Audit the cask
         run: brew audit --cask --online localstack/tap/lstk
 
-      # TODO(localstack/localstack-cli#57): drop continue-on-error once a release
-      # regenerates the formula from that fix. Reported not enforced until then:
-      # the generator emits 7 problems, and fixing them here would be overwritten.
-      #
       # `always()` so a failing cask check above does not skip this; `|| rc=1`
       # because `-e` would otherwise abort before the audit.
       - name: Style and audit the formula
         if: always()
-        continue-on-error: true
         run: |
           rc=0
           brew style --formula localstack/tap/localstack-cli || rc=1
