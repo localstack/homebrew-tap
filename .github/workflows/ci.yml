@@ -42,13 +42,8 @@ jobs:
           rm -rf "${dest}"
           cp -R tap "${dest}"
 
-      # TODO(localstack/lstk#512): drop --except-cops. The next lstk release
-      # regenerates this cask with the quarantine stanza first, which trips
-      # Cask/StanzaOrder on every stanza after it until the install_steps form
-      # lands upstream. Scoped to that one cop, so Cask/InstallSteps -- the cop
-      # that catches #7 -- still fires.
       - name: Style the cask
-        run: brew style --except-cops=Cask/StanzaOrder --cask localstack/tap/lstk
+        run: brew style --cask localstack/tap/lstk
 
       # Why this job earns its keep: --online fetches every url and verifies
       # every checksum. lstk's own CI renders the cask before the release it
