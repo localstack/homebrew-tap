@@ -4,21 +4,21 @@ cask "lstk" do
 
   on_macos do
     on_arm do
-      sha256 "91e7efe2966408059acb72c691014565f036f0539ac54d88d23d56b3873f825a"
+      sha256 "93902ec1d384b6ebaf888364150c17c75199b5ee43ccf09534954664b9a06d02"
       url "https://github.com/localstack/lstk/releases/download/v#{version}/lstk_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "57726c2715c89f2b13b51f25b9d7e3b0327c437ad0cf299e53e73fd7905245eb"
+      sha256 "ebad522ee868c910681f0e4434e187db3e081c3b3b8e1b9d02c0c1e7e257ee9a"
       url "https://github.com/localstack/lstk/releases/download/v#{version}/lstk_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "944246102d05e6108f231acf97fc1d7e896965b2ef028deb8baa845b2a72f7fa"
+      sha256 "ab98cbeaaaee32d6c4e22e6f4b164d8e624a9b27fbd9c7312659e682d5e3d11e"
       url "https://github.com/localstack/lstk/releases/download/v#{version}/lstk_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "078756401d59e4cef84066a8b8c15fbdf480b9ce39581210d79d497c90c5fccf"
+      sha256 "82dfcd161ae32867bf1539079b294c899477870e6947eb4953193e48c201e564"
       url "https://github.com/localstack/lstk/releases/download/v#{version}/lstk_#{version}_linux_amd64.tar.gz"
     end
   end
